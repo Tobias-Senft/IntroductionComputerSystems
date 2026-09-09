@@ -62,11 +62,10 @@ int main(int argc, char** argv)
 
   grayScale(input_image, convertetImage);
   save_2D_To_3D(convertetImage);
-
-
-
-
+  
+  
   printf("Done!\n");
+
   return 0;
 }
 
@@ -80,10 +79,11 @@ void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNE
 }
 
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
-  unsigned char[BMP_WIDTH][BMP_HEIGTH][3] returnImage3D;
-  returnImage3D[1] = image;
-  returnImage3D[2] = image;
-  returnImage3D[3] = image;
+  unsigned char returnImage3D[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
+  for (int c = 0; c < BMP_CHANNELS; c++) 
+    for (int x = 0; x < BMP_WIDTH; x++)
+      for (int y = 0; y < BMP_HEIGTH; y++)
+      returnImage3D[x][y][c] = image[x][y];
   write_bitmap(returnImage3D,"Outputtet.bmp");
 
 }
