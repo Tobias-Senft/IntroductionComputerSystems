@@ -10,6 +10,7 @@
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
+void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold);
 
 
 //Function to invert pixels of an image (negative)
@@ -59,8 +60,10 @@ int main(int argc, char** argv)
 
   //Save image to file
   write_bitmap(output_image, argv[2]);
-
+  
   grayScale(input_image, convertetImage);
+  printf("Hej");
+  binary_px(convertetImage,127);
   save_2D_To_3D(convertetImage);
   
   
@@ -72,7 +75,7 @@ int main(int argc, char** argv)
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]){
   for(int x= 0; x < BMP_WIDTH;x++){
-      for(int y = 0; x < BMP_HEIGTH; y++){
+      for(int y = 0; y < BMP_HEIGTH; y++){
         convertetImage[x][y] = (input_image_array[x][y][0] + input_image_array[x][y][1] + input_image_array[x][y][2])/3;
       }
     }
@@ -86,4 +89,19 @@ void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
       returnImage3D[x][y][c] = image[x][y];
   write_bitmap(returnImage3D,"Outputtet.bmp");
 
+}
+void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
+  for(int x = 0; x < BMP_WIDTH; x++){
+    for (int y = 0; y < BMP_HEIGTH; y++){
+      if (image[x][y]<threshold){
+        image[x][y] = 0;
+        
+      }else{
+        image[x][y] = 255;
+      }
+      
+      
+    }
+    
+  }
 }
