@@ -45,7 +45,6 @@ int main(int argc, char** argv)
 
   //Load image from file
   read_bitmap(argv[1], input_image);
-
   //Run inversion
   invert(input_image,output_image);
 
