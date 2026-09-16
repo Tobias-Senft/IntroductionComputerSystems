@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "cbmp.h"
+#include <string.h>
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
@@ -66,8 +67,9 @@ int main(int argc, char** argv)
   printf("Hej");
   binary_px(convertetImage,90);
   
-  
-  Erosion(convertetImage);
+  for(int i = 0; i <= 10;i++){
+    Erosion(convertetImage);
+  }
   
   save_2D_To_3D(convertetImage);
   
@@ -116,21 +118,24 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 
 void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
   printf("hest");
+  unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
+  memcpy(copiedImage,image,sizeof(copiedImage));//gemmer det oprindelige sort hvid billede, så vi beholder det inden erosion.
+
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
-      if(image[x][y] == 255){
-        if ((x+1)> 949 || image[x+1][y] == 0){
+      if(copiedImage[x][y] == 255){
+        if ((x+1)> 949 || copiedImage[x+1][y] == 0){
           image[x][y] = 0;
         }
-        else if ((x-1)<0  || image[x-1][y] == 0)
+        else if ((x-1)<0  || copiedImage[x-1][y] == 0)
         {
           image[x][y] = 0;
         }
-        else if ((y+1) > 949|| image[x][y+1] == 0)
+        else if ((y+1) > 949|| copiedImage[x][y+1] == 0)
         {
           image[x][y] = 0;
         }
-        else if ((y-1) < 0 || image[x][y-1] == 0)
+        else if ((y-1) < 0 || copiedImage[x][y-1] == 0)
         {
           image[x][y] = 0;
         }
