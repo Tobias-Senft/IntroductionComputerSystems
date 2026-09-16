@@ -12,7 +12,10 @@
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
 void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold);
-void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
+void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* count);
+int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int x_current, int y_current);
+int calcNewValue(int value, int frameSize, int WithOfImage);
+
 
 
 //Function to invert pixels of an image (negative)
@@ -51,7 +54,7 @@ int main(int argc, char** argv)
 
   printf("Example program - 02132 - A1\n");
 
-
+  int count = 0;
   
 
   //Load image from file
@@ -66,11 +69,13 @@ int main(int argc, char** argv)
   grayScale(input_image, convertetImage);
   printf("Hej");
   binary_px(convertetImage,90);
-  
+  int count = 0;
+
+
   for(int i = 0; i <= 10;i++){
-    Erosion(convertetImage);
+    Erosion(convertetImage,&count);
   }
-  
+  printf("%d", count);
   save_2D_To_3D(convertetImage);
   
   
@@ -116,14 +121,13 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
   }
 }
 
-void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
-  printf("hest");
+void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* count){
   unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
   memcpy(copiedImage,image,sizeof(copiedImage));//gemmer det oprindelige sort hvid billede, så vi beholder det inden erosion.
-
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
       if(copiedImage[x][y] == 255){
+        (*count) = count + cellDetection(image,x,y);
         if ((x+1)> 949 || copiedImage[x+1][y] == 0){
           image[x][y] = 0;
         }
@@ -142,7 +146,48 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
         else{
 
         }
+        
       }
       }
   }
+}
+
+int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_current, int y_current){
+  int frameSize = 14;
+  int x_Start_Fame = calcNewValue(x_current,frameSize,BMP_WIDTH);
+  int y_Start_Fame = calcNewValue(y_current,frameSize,BMP_HEIGTH);
+  int sum = 0;
+  for(int loop = 0; loop < frameSize; loop++){  
+    sum = sum + image[x_current + loop][y_current];
+    sum = sum + image[x_current][y_current+ loop];
+    sum = sum + image[x_current + loop][y_current +14];
+    sum = sum + image[x_current + 14][y_current +  loop];  
+  }
+  if (sum == 0){
+    for(int y = 0; y < frameSize; y++){
+    for (int x = 0; x < frameSize; x++){
+      image[x_Start_Fame + x][y_Start_Fame + y] = 0;
+    }
+  }
+    return 1;
+  }
+  else{
+  return 0;
+  }  
+   
+}
+
+
+
+int calcNewValue(int value, int frameSize, int WithOfImage){
+  int clacWidth = WithOfImage - frameSize;
+  int clacXDefrence = clacWidth - value;
+  int valueUsed = 0;
+  if(clacXDefrence < 0){
+    valueUsed = value + clacXDefrence;
+  }
+  else{
+    valueUsed = value;
+  }
+  return valueUsed;
 }
