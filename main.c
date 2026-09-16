@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "cbmp.h"
+#include <string.h>
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
@@ -65,10 +66,11 @@ int main(int argc, char** argv)
   grayScale(input_image, convertetImage);
   printf("Hej");
   binary_px(convertetImage,90);
-  for(int i = 0; i < 1000; i++){
+  
+  for(int i = 0; i <= 10;i++){
     Erosion(convertetImage);
   }
-
+  
   save_2D_To_3D(convertetImage);
   
   
@@ -88,10 +90,13 @@ void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNE
 
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
   unsigned char returnImage3D[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
-  for (int c = 0; c < BMP_CHANNELS; c++) 
-    for (int x = 0; x < BMP_WIDTH; x++)
-      for (int y = 0; y < BMP_HEIGTH; y++)
+  for (int c = 0; c < BMP_CHANNELS; c++){ 
+    for (int x = 0; x < BMP_WIDTH; x++){
+      for (int y = 0; y < BMP_HEIGTH; y++){
       returnImage3D[x][y][c] = image[x][y];
+      }
+    }
+  }
   write_bitmap(returnImage3D,"Outputtet.bmp");
 
 }
@@ -112,21 +117,25 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 }
 
 void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
+  printf("hest");
+  unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
+  memcpy(copiedImage,image,sizeof(copiedImage));//gemmer det oprindelige sort hvid billede, så vi beholder det inden erosion.
+
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
-      if(image[x][y] == 255){
-        if ((x+1)> 949 || &image[x+1][y] == 0){
+      if(copiedImage[x][y] == 255){
+        if ((x+1)> 949 || copiedImage[x+1][y] == 0){
           image[x][y] = 0;
         }
-        else if ((x-1)<0  || &image[x-1][y] == 0)
+        else if ((x-1)<0  || copiedImage[x-1][y] == 0)
         {
           image[x][y] = 0;
         }
-        else if ((y+1) > 949|| &image[x][y+1] == 0)
+        else if ((y+1) > 949|| copiedImage[x][y+1] == 0)
         {
           image[x][y] = 0;
         }
-        else if ((y-1) < 0 || &image[x][y-1] == 0)
+        else if ((y-1) < 0 || copiedImage[x][y-1] == 0)
         {
           image[x][y] = 0;
         }
@@ -134,6 +143,6 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
 
         }
       }
-    }
+      }
   }
 }
