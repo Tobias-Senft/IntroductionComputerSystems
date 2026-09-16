@@ -65,7 +65,10 @@ int main(int argc, char** argv)
   grayScale(input_image, convertetImage);
   printf("Hej");
   binary_px(convertetImage,90);
-  Erosion(convertetImage);
+  for(int i = 0; i < 1000; i++){
+    Erosion(convertetImage);
+  }
+
   save_2D_To_3D(convertetImage);
   
   
@@ -84,7 +87,6 @@ void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNE
 }
 
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
-  printf("2D\n");
   unsigned char returnImage3D[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
   for (int c = 0; c < BMP_CHANNELS; c++) 
     for (int x = 0; x < BMP_WIDTH; x++)
@@ -94,7 +96,6 @@ void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
 
 }
 void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
-  printf("Binary Px\n");
   for(int x = 0; x < BMP_WIDTH; x++){
     for (int y = 0; y < BMP_HEIGTH; y++){
       if (image[x][y]<threshold){
@@ -111,28 +112,27 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 }
 
 void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
-  printf("Erosion\n");
-  for(int x = 0; x < BMP_WIDTH; x++){
-    for (int y = 0; y < BMP_HEIGTH; y++){
+  for(int y = 0; y < BMP_HEIGTH; y++){
+    for (int x = 0; x < BMP_WIDTH; x++){
       if(image[x][y] == 255){
-        if (&image[x+1][y] == NULL || &image[x+1][y] == 0){
+        if ((x+1)> 949 || &image[x+1][y] == 0){
           image[x][y] = 0;
         }
-        else if (&image[x-1][y] == NULL || &image[x-1][y] == 0)
+        else if ((x-1)<0  || &image[x-1][y] == 0)
         {
           image[x][y] = 0;
         }
-        else if (&image[x][y+1] == NULL || &image[x][y+1] == 0)
+        else if ((y+1) > 949|| &image[x][y+1] == 0)
         {
           image[x][y] = 0;
         }
-        else if (&image[x][y-1] == NULL || &image[x][y-1] == 0)
+        else if ((y-1) < 0 || &image[x][y-1] == 0)
         {
           image[x][y] = 0;
         }
-        // else{
+        else{
 
-        // }
+        }
       }
     }
   }
