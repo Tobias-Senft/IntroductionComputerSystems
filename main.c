@@ -68,14 +68,14 @@ int main(int argc, char** argv)
   
   grayScale(input_image, convertetImage);
   printf("Hej");
-  binary_px(convertetImage,90);
-  int count = 0;
+  binary_px(convertetImage,127);
 
 
-  for(int i = 0; i <= 10;i++){
+
+  for(int i = 0; i <= 2;i++){
     Erosion(convertetImage,&count);
   }
-  printf("%d", count);
+  printf("\nCount = %d", count);
   save_2D_To_3D(convertetImage);
   
   
@@ -94,7 +94,7 @@ void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNE
 }
 
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
-  unsigned char returnImage3D[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
+  static unsigned char returnImage3D[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
   for (int c = 0; c < BMP_CHANNELS; c++){ 
     for (int x = 0; x < BMP_WIDTH; x++){
       for (int y = 0; y < BMP_HEIGTH; y++){
@@ -127,7 +127,7 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* count){
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
       if(copiedImage[x][y] == 255){
-        (*count) = count + cellDetection(image,x,y);
+        (*count) = (*count) + cellDetection(image,x,y);
         if ((x+1)> 949 || copiedImage[x+1][y] == 0){
           image[x][y] = 0;
         }
@@ -164,11 +164,11 @@ int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_current, int 
     sum = sum + image[x_current + 14][y_current +  loop];  
   }
   if (sum == 0){
-    for(int y = 0; y < frameSize; y++){
-    for (int x = 0; x < frameSize; x++){
-      image[x_Start_Fame + x][y_Start_Fame + y] = 0;
-    }
-  }
+  //   for(int y = 0; y < frameSize; y++){
+  //   for (int x = 0; x < frameSize; x++){
+  //     image[x_Start_Fame + x][y_Start_Fame + y] = 0;
+  //   }
+  // }
     return 1;
   }
   else{
@@ -180,14 +180,14 @@ int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_current, int 
 
 
 int calcNewValue(int value, int frameSize, int WithOfImage){
-  int clacWidth = WithOfImage - frameSize;
+  int clacWidth = WithOfImage - (frameSize );
   int clacXDefrence = clacWidth - value;
   int valueUsed = 0;
   if(clacXDefrence < 0){
-    valueUsed = value + clacXDefrence;
+    valueUsed = value + clacXDefrence - 1;
   }
   else{
-    valueUsed = value;
+    valueUsed = value - 1;
   }
   return valueUsed;
 }
