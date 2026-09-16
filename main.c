@@ -79,7 +79,7 @@ int main(int argc, char** argv)
   save_2D_To_3D(convertetImage);
   
   
-  printf("Done!\n");
+  printf("\nDone!\n");
 
   return 0;
 }
@@ -122,7 +122,7 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 }
 
 void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* count){
-  unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
+  static unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
   memcpy(copiedImage,image,sizeof(copiedImage));//gemmer det oprindelige sort hvid billede, så vi beholder det inden erosion.
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
@@ -158,10 +158,10 @@ int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_current, int 
   int y_Start_Fame = calcNewValue(y_current,frameSize,BMP_HEIGTH);
   int sum = 0;
   for(int loop = 0; loop < frameSize; loop++){  
-    sum = sum + image[x_current + loop][y_current];
-    sum = sum + image[x_current][y_current+ loop];
-    sum = sum + image[x_current + loop][y_current +14];
-    sum = sum + image[x_current + 14][y_current +  loop];  
+    sum = sum + image[x_Start_Fame + loop][y_Start_Fame];
+    sum = sum + image[x_Start_Fame][y_Start_Fame + loop];
+    sum = sum + image[x_Start_Fame + loop][y_Start_Fame +14];
+    sum = sum + image[x_Start_Fame + 14][y_Start_Fame +  loop];  
   }
   if (sum == 0){
   //   for(int y = 0; y < frameSize; y++){
