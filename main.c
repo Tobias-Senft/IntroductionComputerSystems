@@ -164,11 +164,11 @@ int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_current, int 
     sum = sum + image[x_Start_Fame + 14][y_Start_Fame +  loop];  
   }
   if (sum == 0){
-  //   for(int y = 0; y < frameSize; y++){
-  //   for (int x = 0; x < frameSize; x++){
-  //     image[x_Start_Fame + x][y_Start_Fame + y] = 0;
-  //   }
-  // }
+    for(int y = 0; y < frameSize; y++){
+    for (int x = 0; x < frameSize; x++){
+      image[x_Start_Fame + x][y_Start_Fame + y] = 0;
+    }
+  }
     return 1;
   }
   else{
