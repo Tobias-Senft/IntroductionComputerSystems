@@ -13,12 +13,17 @@
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
 void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold);
-void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
+void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* sum);
 // int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int x_current, int y_current);
 // int calcNewValue(int value, int frameSize, int WithOfImage);
 int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
 void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x, int y, int frameSize);
 void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]);
+
+
+// Ekstra Functions
+void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y_start,int frameSize);
+void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
 
 
 //Function to invert pixels of an image (negative)
@@ -86,24 +91,19 @@ int main(int argc, char** argv)
   write_bitmap(output_image, argv[2]);
   
   grayScale(input_image, convertetImage);
-  printf("Hej");
-  binary_px(convertetImage,90);
+  //binary_px(convertetImage,220);
+  dynamicThreshHold(convertetImage);
+  int erostionLoop = 1;
 
-
-
-  for(int i = 0; i <= 10;i++){
-    Erosion(convertetImage);
+  while(erostionLoop){
+    printf("Current count %d\n", count_Basic);
+    Erosion(convertetImage, &erostionLoop);
     count_Basic = count_Basic + celDetectionBasicVersion(convertetImage);
   }
   printf("\nCount = %d", count);
   printf("\nCount Basic = %d", count_Basic);
   save_2D_To_3D(convertetImage);
   colorCrossMap(input_image,cellLocations);
-
-
-
-
-
   int memoryUsage = (sizeof(input_image) + 
                       sizeof(output_image) + 
                       sizeof(convertetImage) + 
@@ -147,18 +147,61 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
       }else{
         image[x][y] = 255;
       }
-      
-      
     }
     
   }
 }
 
-void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
+void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
+  int frameSize = 19; // Must be a factor of 950 or BMP_WIDTH and BMP_HEIGHT
+    for(int x = 0; x < (BMP_WIDTH/frameSize); x++){
+      for (int y = 0; y <  (BMP_HEIGTH/frameSize); y++){
+      frameFunction(image,x*frameSize, y*frameSize,frameSize);
+    }  
+  }
+}
+void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y_start,int frameSize){
+  int avgGrayScaleValue = 0;
+  for (int x = 0; x < frameSize; x++){
+    for (int y = 0; y < frameSize; y++){
+      avgGrayScaleValue = avgGrayScaleValue + image[x_start + x][y_start + y];
+    }
+  }
+  avgGrayScaleValue = avgGrayScaleValue / (frameSize * frameSize);
+  int thresholdGrayScaleValue = 0;
+  if (avgGrayScaleValue >= 0 && avgGrayScaleValue < 100){
+    thresholdGrayScaleValue = avgGrayScaleValue + 60;
+  } else if (avgGrayScaleValue >= 100 && avgGrayScaleValue < 120)
+  {
+    thresholdGrayScaleValue = avgGrayScaleValue + 135;
+  }else{
+    thresholdGrayScaleValue = avgGrayScaleValue;
+}
+  
+  
+  // printf("\n%d",avgGrayScaleValue);
+  for (int x = 0; x < frameSize; x++){
+    for (int y = 0; y < frameSize; y++){
+      if(image[x_start + x][y_start + y] < thresholdGrayScaleValue){
+        image[x_start + x][y_start + y] = 0;
+      }else{
+        image[x_start + x][y_start + y] = 255;
+      }
+    }
+  }
+}
+
+
+
+
+
+void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* sum){
+  *sum = 0;
   static unsigned char copiedImage[BMP_WIDTH][BMP_HEIGTH];
   memcpy(copiedImage,image,sizeof(copiedImage));//gemmer det oprindelige sort hvid billede, så vi beholder det inden erosion.
   for(int y = 0; y < BMP_HEIGTH; y++){
     for (int x = 0; x < BMP_WIDTH; x++){
+      *sum  = *sum + copiedImage[x][y];
       if(copiedImage[x][y] == 255){
         //(*count) = (*count) + cellDetection(image,x,y);
         if ((x+1)> 949 || copiedImage[x+1][y] == 0){
@@ -186,7 +229,7 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
 }
 
 int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
-  int frameSize = 14;
+  int frameSize = 18;
   int sum = 0;
   int count = 0;
   for(int y = 0; y < (BMP_HEIGTH - frameSize); y++){
