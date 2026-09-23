@@ -16,7 +16,8 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
 // int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int x_current, int y_current);
 // int calcNewValue(int value, int frameSize, int WithOfImage);
 int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
-
+void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x, int y, int frameSize);
+void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]);
 
 
 //Function to invert pixels of an image (negative)
@@ -37,10 +38,21 @@ void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsi
   unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
   unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
   unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH];
+  unsigned char cellLocations[BMP_WIDTH][BMP_HEIGTH];
 
 //Main function
 int main(int argc, char** argv)
 {
+    
+  for (int i = 0 ;i < BMP_HEIGTH; i++){
+    for (int j = 0; j < BMP_WIDTH; j++)  
+  {
+    cellLocations[i][j]= 0;
+  }
+  }
+
+
+
   //argc counts how may arguments are passed
   //argv[0] is a string with the name of the program
   //argv[1] is the first command line argument (input image)
@@ -81,8 +93,8 @@ int main(int argc, char** argv)
   printf("\nCount = %d", count);
   printf("\nCount Basic = %d", count_Basic);
   save_2D_To_3D(convertetImage);
-  
-  
+  colorCrossMap(input_image,cellLocations);
+
   printf("\nDone!\n");
 
   return 0;
@@ -176,19 +188,50 @@ int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
             whiteExists = whiteExists + image[x+x_s][y+y_s];
           }
         }
-        if(whiteExists){
+        if(whiteExists > 0 ){
         for(int y_i = 1; y_i < (frameSize -1); y_i++){
           for (int x_i = 1 ; x_i < (frameSize-1 ); x_i++){
             image[x + x_i][y + y_i] = 0;
           }
         }
         count++;
+        generateCross(cellLocations,x,y,frameSize);
       }
       }
     }
   }
   return count;
 }
+
+void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x_start, int y_start, int frameSize){
+  for(int x = 0; x <= frameSize ; x++){
+    for(int y = 0; y <= frameSize ; y++){
+      if(x == frameSize/2){
+        crossMap[x_start + x][y_start + y] = 1;
+      }else if(y == frameSize/2){
+        crossMap[x_start + x][y_start + y] = 1;
+      }
+    }
+  }
+};
+
+void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]){
+  for (int z = 0; z < BMP_CHANNELS; z++){
+    for (int x = 0; x < BMP_WIDTH; x++)
+      for (int y = 0; y < BMP_HEIGTH; y++){
+        if(crossMap[x][y] == 1){
+          if(z == 0){
+            image[x][y][z] = 255;
+
+          } else{
+            image[x][y][z] = 0;
+          }
+        }
+      }
+  }
+  write_bitmap(image,"OutputtedCross.bmp");
+}
+
 
 
 
