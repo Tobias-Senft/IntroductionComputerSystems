@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "cbmp.h"
 #include <string.h>
+#include <time.h>
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
@@ -39,10 +40,14 @@ void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsi
   unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
   unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH];
   unsigned char cellLocations[BMP_WIDTH][BMP_HEIGTH];
+  clock_t start,end;
+  double cpu_time_used;
+  
 
 //Main function
 int main(int argc, char** argv)
 {
+  start = clock();
     
   for (int i = 0 ;i < BMP_HEIGTH; i++){
     for (int j = 0; j < BMP_WIDTH; j++)  
@@ -95,8 +100,20 @@ int main(int argc, char** argv)
   save_2D_To_3D(convertetImage);
   colorCrossMap(input_image,cellLocations);
 
-  printf("\nDone!\n");
 
+
+
+
+  int memoryUsage = (sizeof(input_image) + 
+                      sizeof(output_image) + 
+                      sizeof(convertetImage) + 
+                      sizeof(cellLocations));
+
+  printf("\nMemory usage = %d bytes\n", memoryUsage);
+
+  end = clock();
+  cpu_time_used = end - start;
+  printf("Total time: %f ms\n",cpu_time_used *1000.0 / CLOCKS_PER_SEC);
   return 0;
 }
 
