@@ -170,11 +170,17 @@ void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y
   avgGrayScaleValue = avgGrayScaleValue / (frameSize * frameSize);
   int thresholdGrayScaleValue = 0;
   if (avgGrayScaleValue >= 0 && avgGrayScaleValue < 100){
-    thresholdGrayScaleValue = avgGrayScaleValue + 60;
+    thresholdGrayScaleValue = avgGrayScaleValue + 70;
   } else if (avgGrayScaleValue >= 100 && avgGrayScaleValue < 120)
   {
     thresholdGrayScaleValue = avgGrayScaleValue + 135;
-  }else{
+  }else if (avgGrayScaleValue >= 120 && avgGrayScaleValue < 160)
+  {
+    thresholdGrayScaleValue = avgGrayScaleValue + 95;
+  }
+  
+  
+  else{
     thresholdGrayScaleValue = avgGrayScaleValue;
 }
   
