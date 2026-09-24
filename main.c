@@ -4,11 +4,13 @@
 //To compile (win): gcc cbmp.c main.c -o main.exe -std=c99
 //To run (win): ./main.exe example.bmp example_inv.bmp
 
+#include "cbmp.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "cbmp.h"
 #include <string.h>
 #include <time.h>
+#define MAX_FILES 100
+#define MAX_PATH_LEN 260
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]);
 void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] );
@@ -16,29 +18,17 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold);
 void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* sum);
 // int cellDetection(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int x_current, int y_current);
 // int calcNewValue(int value, int frameSize, int WithOfImage);
-int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
+int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH],unsigned char cellMap[BMP_WIDTH][BMP_HEIGTH]);
 void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x, int y, int frameSize);
 void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]);
-
+void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS]);
 
 // Ekstra Functions
 void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y_start,int frameSize);
 void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
+void standardMain(int argc, char** argv);
+void getBitmaps();
 
-
-//Function to invert pixels of an image (negative)
-void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS]){
-  for (int x = 0; x < BMP_WIDTH; x++)
-  {
-    for (int y = 0; y < BMP_HEIGTH; y++)
-    {
-      for (int c = 0; c < BMP_CHANNELS; c++)
-      {
-      output_image[x][y][c] = 255 - input_image[x][y][c];
-      }
-    }
-  }
-}
 
   //Declaring the array to store the image (unsigned char = unsigned 8 bit)
   unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS];
@@ -50,8 +40,19 @@ void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsi
   
 
 //Main function
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv){
+
+  standardMain(argc,argv);
+  
+
+  return 0;
+}
+void getBitmaps(){
+
+}
+
+
+void standardMain(int argc, char** argv){
   start = clock();
     
   for (int i = 0 ;i < BMP_HEIGTH; i++){
@@ -60,9 +61,6 @@ int main(int argc, char** argv)
     cellLocations[i][j]= 0;
   }
   }
-
-
-
   //argc counts how may arguments are passed
   //argv[0] is a string with the name of the program
   //argv[1] is the first command line argument (input image)
@@ -76,8 +74,6 @@ int main(int argc, char** argv)
   }
 
   printf("Example program - 02132 - A1\n");
-
-  int count = 0;
   int count_Basic = 0;
   
 
@@ -98,10 +94,9 @@ int main(int argc, char** argv)
   while(erostionLoop){
     printf("Current count %d\n", count_Basic);
     Erosion(convertetImage, &erostionLoop);
-    count_Basic = count_Basic + celDetectionBasicVersion(convertetImage);
+    count_Basic = count_Basic + celDetectionBasicVersion(convertetImage,cellLocations);
   }
-  printf("\nCount = %d", count);
-  printf("\nCount Basic = %d", count_Basic);
+  printf("\nTotal Count = %d", count_Basic);
   save_2D_To_3D(convertetImage);
   colorCrossMap(input_image,cellLocations);
   int memoryUsage = (sizeof(input_image) + 
@@ -114,8 +109,23 @@ int main(int argc, char** argv)
   end = clock();
   cpu_time_used = end - start;
   printf("Total time: %f ms\n",cpu_time_used *1000.0 / CLOCKS_PER_SEC);
-  return 0;
 }
+
+
+//Function to invert pixels of an image (negative)
+void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS]){
+  for (int x = 0; x < BMP_WIDTH; x++)
+  {
+    for (int y = 0; y < BMP_HEIGTH; y++)
+    {
+      for (int c = 0; c < BMP_CHANNELS; c++)
+      {
+      output_image[x][y][c] = 255 - input_image[x][y][c];
+      }
+    }
+  }
+}
+
 
 
 void grayScale(unsigned char input_image_array[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char convertetImage[BMP_WIDTH][BMP_HEIGTH]){
@@ -234,7 +244,7 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* sum){
   }
 }
 
-int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
+int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH],unsigned char cellMap[BMP_WIDTH][BMP_HEIGTH]){
   int frameSize = 18;
   int sum = 0;
   int count = 0;
@@ -261,7 +271,7 @@ int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
           }
         }
         count++;
-        generateCross(cellLocations,x,y,frameSize);
+        generateCross(cellMap,x,y,frameSize);
       }
       }
     }
