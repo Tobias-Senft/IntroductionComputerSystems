@@ -26,7 +26,7 @@ void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsi
 // Ekstra Functions
 void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y_start,int frameSize);
 void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]);
-void standardMain(int argc, char** argv);
+int standardMain(int argc, char** argv);
 void getBitmaps();
 
 
@@ -42,9 +42,8 @@ void getBitmaps();
 //Main function
 int main(int argc, char** argv){
 
-  standardMain(argc,argv);
+  int count = standardMain(argc,argv);
   
-
   return 0;
 }
 void getBitmaps(){
@@ -52,7 +51,7 @@ void getBitmaps(){
 }
 
 
-void standardMain(int argc, char** argv){
+int standardMain(int argc, char** argv){
   start = clock();
     
   for (int i = 0 ;i < BMP_HEIGTH; i++){
@@ -109,6 +108,7 @@ void standardMain(int argc, char** argv){
   end = clock();
   cpu_time_used = end - start;
   printf("Total time: %f ms\n",cpu_time_used *1000.0 / CLOCKS_PER_SEC);
+  return count_Basic;
 }
 
 
