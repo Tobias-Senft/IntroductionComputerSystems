@@ -20,7 +20,7 @@ void Erosion(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int* sum);
 // int calcNewValue(int value, int frameSize, int WithOfImage);
 int celDetectionBasicVersion(unsigned char image[BMP_WIDTH][BMP_HEIGTH],unsigned char cellMap[BMP_WIDTH][BMP_HEIGTH]);
 void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x, int y, int frameSize);
-void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]);
+void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH], char** fileName);
 void invert(unsigned char input_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char output_image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS]);
 
 // Ekstra Functions
@@ -111,7 +111,7 @@ int standardMain(int argc, char** argv){
   }
   printf("\nTotal Count = %d", count_Basic);
   save_2D_To_3D(convertetImage);
-  colorCrossMap(input_image,cellLocations);
+  colorCrossMap(input_image,cellLocations,argv);
   int memoryUsage = (sizeof(input_image) + 
                       sizeof(output_image) + 
                       sizeof(convertetImage) + 
@@ -177,7 +177,7 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 }
 
 void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
-  int frameSize =50; // Must be a factor of 950 or BMP_WIDTH and BMP_HEIGHT
+  int frameSize =95; // Must be a factor of 950 or BMP_WIDTH and BMP_HEIGHT
     for(int x = 0; x < (BMP_WIDTH/frameSize); x++){
       for (int y = 0; y <  (BMP_HEIGTH/frameSize); y++){
       frameFunction(image,x*frameSize, y*frameSize,frameSize);
@@ -198,15 +198,16 @@ void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y
   if (avgGrayScaleValue < 70)
     {
 
-    thresholdGrayScaleValue = 100;
+    thresholdGrayScaleValue = 90;
   }
-    else if (avgGrayScaleValue < 90){
-        thresholdGrayScaleValue = avgGrayScaleValue*1.6;
-      } 
+    else if (avgGrayScaleValue < 100){
+        thresholdGrayScaleValue = avgGrayScaleValue*1.5;
+    }
+  
   
   
   else{
-    thresholdGrayScaleValue = avgGrayScaleValue*1.8;
+    thresholdGrayScaleValue = 210;
 }
   
   
@@ -306,7 +307,7 @@ void generateCross(unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH],int x_start, in
   }
 };
 
-void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH]){
+void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], unsigned char crossMap[BMP_WIDTH][BMP_HEIGTH], char** fileName){
   for (int z = 0; z < BMP_CHANNELS; z++){
     for (int x = 0; x < BMP_WIDTH; x++)
       for (int y = 0; y < BMP_HEIGTH; y++){
@@ -320,7 +321,7 @@ void colorCrossMap(unsigned char image[BMP_WIDTH][BMP_HEIGTH][BMP_CHANNELS], uns
         }
       }
   }
-  write_bitmap(image,"OutputtedCross.bmp");
+  write_bitmap(image,fileName[2]);
 }
 
 
