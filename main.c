@@ -41,15 +41,15 @@ void getBitmaps();
 
 //Main function
 int main(int argc, char** argv){
-
+  // We have moved the functions into standardMain so we can check multiple images
   int count = standardMain(argc,argv);
+  
+  // int count = standardMain(argc,argv);
   
   return 0;
 }
 void getBitmaps(){
-
 }
-
 
 int standardMain(int argc, char** argv){
   start = clock();
@@ -66,16 +66,15 @@ int standardMain(int argc, char** argv){
   //argv[2] is the second command line argument (output image)
 
   //Checking that 2 arguments are passed
-  if (argc != 3)
+  if (argc != 4) 
+  /*We changed this to 4 instead of 3, so we could give an extra argument basic or dynamic 
+  this just changes the way we calculate thresholds.*/ 
   {
       fprintf(stderr, "Usage: %s <output file path> <output file path>\n", argv[0]);
       exit(1);
   }
-
   printf("Example program - 02132 - A1\n");
   int count_Basic = 0;
-  
-
   //Load image from file
   read_bitmap(argv[1], input_image);
 
@@ -86,8 +85,23 @@ int standardMain(int argc, char** argv){
   write_bitmap(output_image, argv[2]);
   
   grayScale(input_image, convertetImage);
-  //binary_px(convertetImage,220);
-  dynamicThreshHold(convertetImage);
+  
+ /*
+ Option to run basic version of threshold and dynamic version
+ */
+  if(strcmp(argv[3],"basic") == 0){
+    printf("Basic main\n");
+    binary_px(convertetImage,100);
+  } 
+  else if (strcmp(argv[3],"dynamic") == 0){
+    printf("Dynamic Threshold\n");
+    dynamicThreshHold(convertetImage);
+  }
+  else{
+      printf("Not valid Input\n");
+      exit(1);
+  }
+
   int erostionLoop = 1;
 
   while(erostionLoop){
