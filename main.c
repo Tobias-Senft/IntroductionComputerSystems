@@ -91,7 +91,7 @@ int standardMain(int argc, char** argv){
  */
   if(strcmp(argv[3],"basic") == 0){
     printf("Basic main\n");
-    binary_px(convertetImage,100);
+    binary_px(convertetImage,180);
   } 
   else if (strcmp(argv[3],"dynamic") == 0){
     printf("Dynamic Threshold\n");
@@ -177,7 +177,7 @@ void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
 }
 
 void dynamicThreshHold(unsigned char image[BMP_WIDTH][BMP_HEIGTH]){
-  int frameSize = 19; // Must be a factor of 950 or BMP_WIDTH and BMP_HEIGHT
+  int frameSize =50; // Must be a factor of 950 or BMP_WIDTH and BMP_HEIGHT
     for(int x = 0; x < (BMP_WIDTH/frameSize); x++){
       for (int y = 0; y <  (BMP_HEIGTH/frameSize); y++){
       frameFunction(image,x*frameSize, y*frameSize,frameSize);
@@ -192,20 +192,21 @@ void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y
     }
   }
   avgGrayScaleValue = avgGrayScaleValue / (frameSize * frameSize);
+  printf("%d\n",avgGrayScaleValue);
   int thresholdGrayScaleValue = 0;
-  if (avgGrayScaleValue >= 0 && avgGrayScaleValue < 100){
-    thresholdGrayScaleValue = avgGrayScaleValue + 70;
-  } else if (avgGrayScaleValue >= 100 && avgGrayScaleValue < 130)
-  {
-    thresholdGrayScaleValue = avgGrayScaleValue ;
-  }
-  // else if (avgGrayScaleValue >= 120 && avgGrayScaleValue < 160)
-  // {
-  //   thresholdGrayScaleValue = avgGrayScaleValue + 95;
-  // }
+  
+  if (avgGrayScaleValue < 70)
+    {
 
+    thresholdGrayScaleValue = 100;
+  }
+    else if (avgGrayScaleValue < 90){
+        thresholdGrayScaleValue = avgGrayScaleValue*1.6;
+      } 
+  
+  
   else{
-    thresholdGrayScaleValue = avgGrayScaleValue -20;
+    thresholdGrayScaleValue = avgGrayScaleValue*1.8;
 }
   
   
