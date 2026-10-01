@@ -105,7 +105,7 @@ int standardMain(int argc, char** argv){
   int erostionLoop = 1;
 
   while(erostionLoop){
-    printf("Current count %d\n", count_Basic);
+    // printf("Current count %d\n", count_Basic);
     Erosion(convertetImage, &erostionLoop);
     count_Basic = count_Basic + celDetectionBasicVersion(convertetImage,cellLocations);
   }
@@ -160,7 +160,6 @@ void save_2D_To_3D(unsigned char image[BMP_WIDTH][BMP_HEIGTH] ){
     }
   }
   write_bitmap(returnImage3D,"Outputtet.bmp");
-
 }
 void binary_px(unsigned char image[BMP_WIDTH][BMP_HEIGTH], int threshold){
   for(int x = 0; x < BMP_WIDTH; x++){
@@ -188,11 +187,12 @@ void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y
   int avgGrayScaleValue = 0;
   for (int x = 0; x < frameSize; x++){
     for (int y = 0; y < frameSize; y++){
+     // if( image[x_start + x][y_start + y] > 180){
       avgGrayScaleValue = avgGrayScaleValue + image[x_start + x][y_start + y];
-    }
+   // }
   }
+}
   avgGrayScaleValue = avgGrayScaleValue / (frameSize * frameSize);
-  printf("%d\n",avgGrayScaleValue);
   int thresholdGrayScaleValue = 0;
   
   if (avgGrayScaleValue < 70)
@@ -200,14 +200,15 @@ void frameFunction(unsigned char image[BMP_WIDTH][BMP_HEIGTH],int x_start, int y
 
     thresholdGrayScaleValue = 90;
   }
-    else if (avgGrayScaleValue < 100){
-        thresholdGrayScaleValue = avgGrayScaleValue*1.5;
+  else if (avgGrayScaleValue < 120){
+        thresholdGrayScaleValue = avgGrayScaleValue*1.6;
     }
-  
-  
-  
+
+    else if (avgGrayScaleValue < 160){
+        thresholdGrayScaleValue = avgGrayScaleValue*1.8;
+    }
   else{
-    thresholdGrayScaleValue = 210;
+    thresholdGrayScaleValue = 220;
 }
   
   
