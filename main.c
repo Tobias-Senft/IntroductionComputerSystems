@@ -42,17 +42,20 @@ void getBitmaps();
 //Main function
 int main(int argc, char** argv){
   // We have moved the functions into standardMain so we can check multiple images
+  start = clock();
   int count = standardMain(argc,argv);
-  
-  // int count = standardMain(argc,argv);
-  
+  end = clock();
+  cpu_time_used = end - start;
+  printf("The file %s, counted = %d, using %s, Total time: %f ms", argv[1] ,count, argv[3],cpu_time_used *1000.0 / CLOCKS_PER_SEC);
+
+
   return 0;
 }
 void getBitmaps(){
 }
 
 int standardMain(int argc, char** argv){
-  start = clock();
+  
     
   for (int i = 0 ;i < BMP_HEIGTH; i++){
     for (int j = 0; j < BMP_WIDTH; j++)  
@@ -73,7 +76,7 @@ int standardMain(int argc, char** argv){
       fprintf(stderr, "Usage: %s <output file path> <output file path>\n", argv[0]);
       exit(1);
   }
-  printf("Example program - 02132 - A1\n");
+  //printf("Example program - 02132 - A1\n");
   int count_Basic = 0;
   //Load image from file
   read_bitmap(argv[1], input_image);
@@ -90,11 +93,11 @@ int standardMain(int argc, char** argv){
  Option to run basic version of threshold and dynamic version
  */
   if(strcmp(argv[3],"basic") == 0){
-    printf("Basic main\n");
+  //  printf("Basic main\n");
     binary_px(convertetImage,180);
   } 
   else if (strcmp(argv[3],"dynamic") == 0){
-    printf("Dynamic Threshold\n");
+  //  printf("Dynamic Threshold\n");
     dynamicThreshHold(convertetImage);
   }
   else{
@@ -109,19 +112,14 @@ int standardMain(int argc, char** argv){
     Erosion(convertetImage, &erostionLoop);
     count_Basic = count_Basic + celDetectionBasicVersion(convertetImage,cellLocations);
   }
-  printf("\nTotal Count = %d", count_Basic);
+  //printf("\nTotal Count = %d", count_Basic);
   save_2D_To_3D(convertetImage);
   colorCrossMap(input_image,cellLocations,argv);
-  int memoryUsage = (sizeof(input_image) + 
-                      sizeof(output_image) + 
-                      sizeof(convertetImage) + 
-                      sizeof(cellLocations));
-
-  printf("\nMemory usage = %d bytes\n", memoryUsage);
-
-  end = clock();
-  cpu_time_used = end - start;
-  printf("Total time: %f ms\n",cpu_time_used *1000.0 / CLOCKS_PER_SEC);
+  // int memoryUsage = (sizeof(input_image) + 
+  //                     sizeof(output_image) + 
+  //                     sizeof(convertetImage) + 
+  //                     sizeof(cellLocations));
+  // printf("\nMemory usage = %d bytes\n", memoryUsage);  
   return count_Basic;
 }
 

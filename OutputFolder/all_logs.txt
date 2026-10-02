@@ -1,0 +1,210 @@
+===== easy | basic | 10EASY | exit 0 | 3.2274s =====
+The file samples/easy/10EASY.bmp, counted = 312, using basic, Total time: 3153.000000 ms
+
+===== easy | basic | 1EASY | exit 0 | 2.2518s =====
+The file samples/easy/1EASY.bmp, counted = 311, using basic, Total time: 2183.000000 ms
+
+===== easy | basic | 2EASY | exit 0 | 2.2488s =====
+The file samples/easy/2EASY.bmp, counted = 308, using basic, Total time: 2156.000000 ms
+
+===== easy | basic | 3EASY | exit 0 | 2.1973s =====
+The file samples/easy/3EASY.bmp, counted = 310, using basic, Total time: 2114.000000 ms
+
+===== easy | basic | 4EASY | exit 0 | 2.7316s =====
+The file samples/easy/4EASY.bmp, counted = 317, using basic, Total time: 2667.000000 ms
+
+===== easy | basic | 5EASY | exit 0 | 2.2404s =====
+The file samples/easy/5EASY.bmp, counted = 313, using basic, Total time: 2160.000000 ms
+
+===== easy | basic | 6EASY | exit 0 | 2.2179s =====
+The file samples/easy/6EASY.bmp, counted = 315, using basic, Total time: 2136.000000 ms
+
+===== easy | basic | 7EASY | exit 0 | 2.7151s =====
+The file samples/easy/7EASY.bmp, counted = 316, using basic, Total time: 2648.000000 ms
+
+===== easy | basic | 8EASY | exit 0 | 3.4569s =====
+The file samples/easy/8EASY.bmp, counted = 307, using basic, Total time: 3383.000000 ms
+
+===== easy | basic | 9EASY | exit 0 | 3.2826s =====
+The file samples/easy/9EASY.bmp, counted = 313, using basic, Total time: 3208.000000 ms
+
+===== easy | dynamic | 10EASY | exit 0 | 5.9731s =====
+The file samples/easy/10EASY.bmp, counted = 300, using dynamic, Total time: 5899.000000 ms
+
+===== easy | dynamic | 1EASY | exit 0 | 5.5388s =====
+The file samples/easy/1EASY.bmp, counted = 300, using dynamic, Total time: 5463.000000 ms
+
+===== easy | dynamic | 2EASY | exit 0 | 6.5438s =====
+The file samples/easy/2EASY.bmp, counted = 304, using dynamic, Total time: 6469.000000 ms
+
+===== easy | dynamic | 3EASY | exit 0 | 6.3681s =====
+The file samples/easy/3EASY.bmp, counted = 300, using dynamic, Total time: 6299.000000 ms
+
+===== easy | dynamic | 4EASY | exit 0 | 6.7842s =====
+The file samples/easy/4EASY.bmp, counted = 299, using dynamic, Total time: 6707.000000 ms
+
+===== easy | dynamic | 5EASY | exit 0 | 4.8537s =====
+The file samples/easy/5EASY.bmp, counted = 300, using dynamic, Total time: 4773.000000 ms
+
+===== easy | dynamic | 6EASY | exit 0 | 5.2297s =====
+The file samples/easy/6EASY.bmp, counted = 301, using dynamic, Total time: 5137.000000 ms
+
+===== easy | dynamic | 7EASY | exit 0 | 6.2222s =====
+The file samples/easy/7EASY.bmp, counted = 299, using dynamic, Total time: 6129.000000 ms
+
+===== easy | dynamic | 8EASY | exit 0 | 5.0253s =====
+The file samples/easy/8EASY.bmp, counted = 300, using dynamic, Total time: 4959.000000 ms
+
+===== easy | dynamic | 9EASY | exit 0 | 7.2749s =====
+The file samples/easy/9EASY.bmp, counted = 298, using dynamic, Total time: 7186.000000 ms
+
+===== hard | basic | 10HARD | exit 0 | 6.0326s =====
+The file samples/hard/10HARD.bmp, counted = 276, using basic, Total time: 5955.000000 ms
+
+===== hard | basic | 1HARD | exit 0 | 5.5884s =====
+The file samples/hard/1HARD.bmp, counted = 294, using basic, Total time: 5513.000000 ms
+
+===== hard | basic | 2HARD | exit 0 | 6.2529s =====
+The file samples/hard/2HARD.bmp, counted = 267, using basic, Total time: 6168.000000 ms
+
+===== hard | basic | 3HARD | exit 0 | 6.6338s =====
+The file samples/hard/3HARD.bmp, counted = 254, using basic, Total time: 6549.000000 ms
+
+===== hard | basic | 4HARD | exit 0 | 6.1096s =====
+The file samples/hard/4HARD.bmp, counted = 276, using basic, Total time: 6026.000000 ms
+
+===== hard | basic | 5HARD | exit 0 | 5.4867s =====
+The file samples/hard/5HARD.bmp, counted = 291, using basic, Total time: 5409.000000 ms
+
+===== hard | basic | 6HARD | exit 0 | 5.4872s =====
+The file samples/hard/6HARD.bmp, counted = 289, using basic, Total time: 5411.000000 ms
+
+===== hard | basic | 7HARD | exit 0 | 6.1836s =====
+The file samples/hard/7HARD.bmp, counted = 292, using basic, Total time: 6090.000000 ms
+
+===== hard | basic | 8HARD | exit 0 | 7.7001s =====
+The file samples/hard/8HARD.bmp, counted = 295, using basic, Total time: 7616.000000 ms
+
+===== hard | basic | 9HARD | exit 0 | 6.3159s =====
+The file samples/hard/9HARD.bmp, counted = 287, using basic, Total time: 6226.000000 ms
+
+===== hard | dynamic | 10HARD | exit 0 | 9.0121s =====
+The file samples/hard/10HARD.bmp, counted = 261, using dynamic, Total time: 8919.000000 ms
+
+===== hard | dynamic | 1HARD | exit 0 | 10.3037s =====
+The file samples/hard/1HARD.bmp, counted = 272, using dynamic, Total time: 10217.000000 ms
+
+===== hard | dynamic | 2HARD | exit 0 | 8.2477s =====
+The file samples/hard/2HARD.bmp, counted = 251, using dynamic, Total time: 8158.000000 ms
+
+===== hard | dynamic | 3HARD | exit 0 | 8.4449s =====
+The file samples/hard/3HARD.bmp, counted = 253, using dynamic, Total time: 8377.000000 ms
+
+===== hard | dynamic | 4HARD | exit 0 | 8.5285s =====
+The file samples/hard/4HARD.bmp, counted = 259, using dynamic, Total time: 8440.000000 ms
+
+===== hard | dynamic | 5HARD | exit 0 | 9.2221s =====
+The file samples/hard/5HARD.bmp, counted = 259, using dynamic, Total time: 9138.000000 ms
+
+===== hard | dynamic | 6HARD | exit 0 | 9.3700s =====
+The file samples/hard/6HARD.bmp, counted = 270, using dynamic, Total time: 9287.000000 ms
+
+===== hard | dynamic | 7HARD | exit 0 | 9.4585s =====
+The file samples/hard/7HARD.bmp, counted = 267, using dynamic, Total time: 9386.000000 ms
+
+===== hard | dynamic | 8HARD | exit 0 | 7.9470s =====
+The file samples/hard/8HARD.bmp, counted = 264, using dynamic, Total time: 7865.000000 ms
+
+===== hard | dynamic | 9HARD | exit 0 | 9.2363s =====
+The file samples/hard/9HARD.bmp, counted = 268, using dynamic, Total time: 9147.000000 ms
+
+===== impossible | basic | 1IMPOSSIBLE | exit 0 | 6.2367s =====
+The file samples/impossible/1IMPOSSIBLE.bmp, counted = 275, using basic, Total time: 6138.000000 ms
+
+===== impossible | basic | 2IMPOSSIBLE | exit 0 | 6.8317s =====
+The file samples/impossible/2IMPOSSIBLE.bmp, counted = 249, using basic, Total time: 6758.000000 ms
+
+===== impossible | basic | 3IMPOSSIBLE | exit 0 | 9.2959s =====
+The file samples/impossible/3IMPOSSIBLE.bmp, counted = 253, using basic, Total time: 9204.000000 ms
+
+===== impossible | basic | 4IMPOSSIBLE | exit 0 | 7.0422s =====
+The file samples/impossible/4IMPOSSIBLE.bmp, counted = 263, using basic, Total time: 6950.000000 ms
+
+===== impossible | basic | 5IMPOSSIBLE | exit 0 | 6.3855s =====
+The file samples/impossible/5IMPOSSIBLE.bmp, counted = 268, using basic, Total time: 6312.000000 ms
+
+===== impossible | dynamic | 1IMPOSSIBLE | exit 0 | 9.0936s =====
+The file samples/impossible/1IMPOSSIBLE.bmp, counted = 235, using dynamic, Total time: 9027.000000 ms
+
+===== impossible | dynamic | 2IMPOSSIBLE | exit 0 | 8.8567s =====
+The file samples/impossible/2IMPOSSIBLE.bmp, counted = 243, using dynamic, Total time: 8785.000000 ms
+
+===== impossible | dynamic | 3IMPOSSIBLE | exit 0 | 9.3079s =====
+The file samples/impossible/3IMPOSSIBLE.bmp, counted = 230, using dynamic, Total time: 9221.000000 ms
+
+===== impossible | dynamic | 4IMPOSSIBLE | exit 0 | 9.6937s =====
+The file samples/impossible/4IMPOSSIBLE.bmp, counted = 240, using dynamic, Total time: 9612.000000 ms
+
+===== impossible | dynamic | 5IMPOSSIBLE | exit 0 | 8.4473s =====
+The file samples/impossible/5IMPOSSIBLE.bmp, counted = 250, using dynamic, Total time: 8368.000000 ms
+
+===== medium | basic | 10MEDIUM | exit 0 | 6.7278s =====
+The file samples/medium/10MEDIUM.bmp, counted = 304, using basic, Total time: 6665.000000 ms
+
+===== medium | basic | 1MEDIUM | exit 0 | 7.0663s =====
+The file samples/medium/1MEDIUM.bmp, counted = 292, using basic, Total time: 6974.000000 ms
+
+===== medium | basic | 2MEDIUM | exit 0 | 5.3213s =====
+The file samples/medium/2MEDIUM.bmp, counted = 287, using basic, Total time: 5243.000000 ms
+
+===== medium | basic | 3MEDIUM | exit 0 | 5.3118s =====
+The file samples/medium/3MEDIUM.bmp, counted = 291, using basic, Total time: 5211.000000 ms
+
+===== medium | basic | 4MEDIUM | exit 0 | 5.3699s =====
+The file samples/medium/4MEDIUM.bmp, counted = 292, using basic, Total time: 5293.000000 ms
+
+===== medium | basic | 5MEDIUM | exit 0 | 5.2264s =====
+The file samples/medium/5MEDIUM.bmp, counted = 290, using basic, Total time: 5153.000000 ms
+
+===== medium | basic | 6MEDIUM | exit 0 | 6.1985s =====
+The file samples/medium/6MEDIUM.bmp, counted = 301, using basic, Total time: 6119.000000 ms
+
+===== medium | basic | 7MEDIUM | exit 0 | 7.0876s =====
+The file samples/medium/7MEDIUM.bmp, counted = 284, using basic, Total time: 6985.000000 ms
+
+===== medium | basic | 8MEDIUM | exit 0 | 5.7562s =====
+The file samples/medium/8MEDIUM.bmp, counted = 280, using basic, Total time: 5677.000000 ms
+
+===== medium | basic | 9MEDIUM | exit 0 | 4.6994s =====
+The file samples/medium/9MEDIUM.bmp, counted = 284, using basic, Total time: 4641.000000 ms
+
+===== medium | dynamic | 10MEDIUM | exit 0 | 7.9455s =====
+The file samples/medium/10MEDIUM.bmp, counted = 271, using dynamic, Total time: 7867.000000 ms
+
+===== medium | dynamic | 1MEDIUM | exit 0 | 9.7805s =====
+The file samples/medium/1MEDIUM.bmp, counted = 266, using dynamic, Total time: 9699.000000 ms
+
+===== medium | dynamic | 2MEDIUM | exit 0 | 7.8060s =====
+The file samples/medium/2MEDIUM.bmp, counted = 269, using dynamic, Total time: 7724.000000 ms
+
+===== medium | dynamic | 3MEDIUM | exit 0 | 8.8985s =====
+The file samples/medium/3MEDIUM.bmp, counted = 265, using dynamic, Total time: 8811.000000 ms
+
+===== medium | dynamic | 4MEDIUM | exit 0 | 8.1094s =====
+The file samples/medium/4MEDIUM.bmp, counted = 265, using dynamic, Total time: 8040.000000 ms
+
+===== medium | dynamic | 5MEDIUM | exit 0 | 11.4768s =====
+The file samples/medium/5MEDIUM.bmp, counted = 263, using dynamic, Total time: 11385.000000 ms
+
+===== medium | dynamic | 6MEDIUM | exit 0 | 10.0087s =====
+The file samples/medium/6MEDIUM.bmp, counted = 279, using dynamic, Total time: 9937.000000 ms
+
+===== medium | dynamic | 7MEDIUM | exit 0 | 11.0440s =====
+The file samples/medium/7MEDIUM.bmp, counted = 256, using dynamic, Total time: 10961.000000 ms
+
+===== medium | dynamic | 8MEDIUM | exit 0 | 10.5166s =====
+The file samples/medium/8MEDIUM.bmp, counted = 245, using dynamic, Total time: 10442.000000 ms
+
+===== medium | dynamic | 9MEDIUM | exit 0 | 8.8940s =====
+The file samples/medium/9MEDIUM.bmp, counted = 263, using dynamic, Total time: 8791.000000 ms
+
