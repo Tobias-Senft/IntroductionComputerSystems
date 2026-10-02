@@ -1,78 +1,71 @@
-level,method,image,input_path,output_path,exit_code,runtime_seconds,program_output
-"easy","basic","10EASY","samples/easy/10EASY.bmp","OutputFolder/easy/basic/10EASY_OUTPUT.bmp",0,3.2455,"The file samples/easy/10EASY.bmp, counted = 312, using basic, Total time: 3163.000000 ms"
-"easy","basic","1EASY","samples/easy/1EASY.bmp","OutputFolder/easy/basic/1EASY_OUTPUT.bmp",0,2.2820,"The file samples/easy/1EASY.bmp, counted = 311, using basic, Total time: 2198.000000 ms"
-"easy","basic","2EASY","samples/easy/2EASY.bmp","OutputFolder/easy/basic/2EASY_OUTPUT.bmp",0,2.2639,"The file samples/easy/2EASY.bmp, counted = 308, using basic, Total time: 2161.000000 ms"
-"easy","basic","3EASY","samples/easy/3EASY.bmp","OutputFolder/easy/basic/3EASY_OUTPUT.bmp",0,2.2687,"The file samples/easy/3EASY.bmp, counted = 310, using basic, Total time: 2176.000000 ms"
-"easy","basic","4EASY","samples/easy/4EASY.bmp","OutputFolder/easy/basic/4EASY_OUTPUT.bmp",0,2.7765,"The file samples/easy/4EASY.bmp, counted = 317, using basic, Total time: 2711.000000 ms"
-"easy","basic","5EASY","samples/easy/5EASY.bmp","OutputFolder/easy/basic/5EASY_OUTPUT.bmp",0,2.2959,"The file samples/easy/5EASY.bmp, counted = 313, using basic, Total time: 2213.000000 ms"
-"easy","basic","6EASY","samples/easy/6EASY.bmp","OutputFolder/easy/basic/6EASY_OUTPUT.bmp",0,2.3034,"The file samples/easy/6EASY.bmp, counted = 315, using basic, Total time: 2221.000000 ms"
-"easy","basic","10EASY","samples/easy/10EASY.bmp","OutputFolder/easy/basic/10EASY_OUTPUT.bmp",0,3.2274,"The file samples/easy/10EASY.bmp, counted = 312, using basic, Total time: 3153.000000 ms"
-"easy","basic","1EASY","samples/easy/1EASY.bmp","OutputFolder/easy/basic/1EASY_OUTPUT.bmp",0,2.2518,"The file samples/easy/1EASY.bmp, counted = 311, using basic, Total time: 2183.000000 ms"
-"easy","basic","2EASY","samples/easy/2EASY.bmp","OutputFolder/easy/basic/2EASY_OUTPUT.bmp",0,2.2488,"The file samples/easy/2EASY.bmp, counted = 308, using basic, Total time: 2156.000000 ms"
-"easy","basic","3EASY","samples/easy/3EASY.bmp","OutputFolder/easy/basic/3EASY_OUTPUT.bmp",0,2.1973,"The file samples/easy/3EASY.bmp, counted = 310, using basic, Total time: 2114.000000 ms"
-"easy","basic","4EASY","samples/easy/4EASY.bmp","OutputFolder/easy/basic/4EASY_OUTPUT.bmp",0,2.7316,"The file samples/easy/4EASY.bmp, counted = 317, using basic, Total time: 2667.000000 ms"
-"easy","basic","5EASY","samples/easy/5EASY.bmp","OutputFolder/easy/basic/5EASY_OUTPUT.bmp",0,2.2404,"The file samples/easy/5EASY.bmp, counted = 313, using basic, Total time: 2160.000000 ms"
-"easy","basic","6EASY","samples/easy/6EASY.bmp","OutputFolder/easy/basic/6EASY_OUTPUT.bmp",0,2.2179,"The file samples/easy/6EASY.bmp, counted = 315, using basic, Total time: 2136.000000 ms"
-"easy","basic","7EASY","samples/easy/7EASY.bmp","OutputFolder/easy/basic/7EASY_OUTPUT.bmp",0,2.7151,"The file samples/easy/7EASY.bmp, counted = 316, using basic, Total time: 2648.000000 ms"
-"easy","basic","8EASY","samples/easy/8EASY.bmp","OutputFolder/easy/basic/8EASY_OUTPUT.bmp",0,3.4569,"The file samples/easy/8EASY.bmp, counted = 307, using basic, Total time: 3383.000000 ms"
-"easy","basic","9EASY","samples/easy/9EASY.bmp","OutputFolder/easy/basic/9EASY_OUTPUT.bmp",0,3.2826,"The file samples/easy/9EASY.bmp, counted = 313, using basic, Total time: 3208.000000 ms"
-"easy","dynamic","10EASY","samples/easy/10EASY.bmp","OutputFolder/easy/dynamic/10EASY_OUTPUT.bmp",0,5.9731,"The file samples/easy/10EASY.bmp, counted = 300, using dynamic, Total time: 5899.000000 ms"
-"easy","dynamic","1EASY","samples/easy/1EASY.bmp","OutputFolder/easy/dynamic/1EASY_OUTPUT.bmp",0,5.5388,"The file samples/easy/1EASY.bmp, counted = 300, using dynamic, Total time: 5463.000000 ms"
-"easy","dynamic","2EASY","samples/easy/2EASY.bmp","OutputFolder/easy/dynamic/2EASY_OUTPUT.bmp",0,6.5438,"The file samples/easy/2EASY.bmp, counted = 304, using dynamic, Total time: 6469.000000 ms"
-"easy","dynamic","3EASY","samples/easy/3EASY.bmp","OutputFolder/easy/dynamic/3EASY_OUTPUT.bmp",0,6.3681,"The file samples/easy/3EASY.bmp, counted = 300, using dynamic, Total time: 6299.000000 ms"
-"easy","dynamic","4EASY","samples/easy/4EASY.bmp","OutputFolder/easy/dynamic/4EASY_OUTPUT.bmp",0,6.7842,"The file samples/easy/4EASY.bmp, counted = 299, using dynamic, Total time: 6707.000000 ms"
-"easy","dynamic","5EASY","samples/easy/5EASY.bmp","OutputFolder/easy/dynamic/5EASY_OUTPUT.bmp",0,4.8537,"The file samples/easy/5EASY.bmp, counted = 300, using dynamic, Total time: 4773.000000 ms"
-"easy","dynamic","6EASY","samples/easy/6EASY.bmp","OutputFolder/easy/dynamic/6EASY_OUTPUT.bmp",0,5.2297,"The file samples/easy/6EASY.bmp, counted = 301, using dynamic, Total time: 5137.000000 ms"
-"easy","dynamic","7EASY","samples/easy/7EASY.bmp","OutputFolder/easy/dynamic/7EASY_OUTPUT.bmp",0,6.2222,"The file samples/easy/7EASY.bmp, counted = 299, using dynamic, Total time: 6129.000000 ms"
-"easy","dynamic","8EASY","samples/easy/8EASY.bmp","OutputFolder/easy/dynamic/8EASY_OUTPUT.bmp",0,5.0253,"The file samples/easy/8EASY.bmp, counted = 300, using dynamic, Total time: 4959.000000 ms"
-"easy","dynamic","9EASY","samples/easy/9EASY.bmp","OutputFolder/easy/dynamic/9EASY_OUTPUT.bmp",0,7.2749,"The file samples/easy/9EASY.bmp, counted = 298, using dynamic, Total time: 7186.000000 ms"
-"hard","basic","10HARD","samples/hard/10HARD.bmp","OutputFolder/hard/basic/10HARD_OUTPUT.bmp",0,6.0326,"The file samples/hard/10HARD.bmp, counted = 276, using basic, Total time: 5955.000000 ms"
-"hard","basic","1HARD","samples/hard/1HARD.bmp","OutputFolder/hard/basic/1HARD_OUTPUT.bmp",0,5.5884,"The file samples/hard/1HARD.bmp, counted = 294, using basic, Total time: 5513.000000 ms"
-"hard","basic","2HARD","samples/hard/2HARD.bmp","OutputFolder/hard/basic/2HARD_OUTPUT.bmp",0,6.2529,"The file samples/hard/2HARD.bmp, counted = 267, using basic, Total time: 6168.000000 ms"
-"hard","basic","3HARD","samples/hard/3HARD.bmp","OutputFolder/hard/basic/3HARD_OUTPUT.bmp",0,6.6338,"The file samples/hard/3HARD.bmp, counted = 254, using basic, Total time: 6549.000000 ms"
-"hard","basic","4HARD","samples/hard/4HARD.bmp","OutputFolder/hard/basic/4HARD_OUTPUT.bmp",0,6.1096,"The file samples/hard/4HARD.bmp, counted = 276, using basic, Total time: 6026.000000 ms"
-"hard","basic","5HARD","samples/hard/5HARD.bmp","OutputFolder/hard/basic/5HARD_OUTPUT.bmp",0,5.4867,"The file samples/hard/5HARD.bmp, counted = 291, using basic, Total time: 5409.000000 ms"
-"hard","basic","6HARD","samples/hard/6HARD.bmp","OutputFolder/hard/basic/6HARD_OUTPUT.bmp",0,5.4872,"The file samples/hard/6HARD.bmp, counted = 289, using basic, Total time: 5411.000000 ms"
-"hard","basic","7HARD","samples/hard/7HARD.bmp","OutputFolder/hard/basic/7HARD_OUTPUT.bmp",0,6.1836,"The file samples/hard/7HARD.bmp, counted = 292, using basic, Total time: 6090.000000 ms"
-"hard","basic","8HARD","samples/hard/8HARD.bmp","OutputFolder/hard/basic/8HARD_OUTPUT.bmp",0,7.7001,"The file samples/hard/8HARD.bmp, counted = 295, using basic, Total time: 7616.000000 ms"
-"hard","basic","9HARD","samples/hard/9HARD.bmp","OutputFolder/hard/basic/9HARD_OUTPUT.bmp",0,6.3159,"The file samples/hard/9HARD.bmp, counted = 287, using basic, Total time: 6226.000000 ms"
-"hard","dynamic","10HARD","samples/hard/10HARD.bmp","OutputFolder/hard/dynamic/10HARD_OUTPUT.bmp",0,9.0121,"The file samples/hard/10HARD.bmp, counted = 261, using dynamic, Total time: 8919.000000 ms"
-"hard","dynamic","1HARD","samples/hard/1HARD.bmp","OutputFolder/hard/dynamic/1HARD_OUTPUT.bmp",0,10.3037,"The file samples/hard/1HARD.bmp, counted = 272, using dynamic, Total time: 10217.000000 ms"
-"hard","dynamic","2HARD","samples/hard/2HARD.bmp","OutputFolder/hard/dynamic/2HARD_OUTPUT.bmp",0,8.2477,"The file samples/hard/2HARD.bmp, counted = 251, using dynamic, Total time: 8158.000000 ms"
-"hard","dynamic","3HARD","samples/hard/3HARD.bmp","OutputFolder/hard/dynamic/3HARD_OUTPUT.bmp",0,8.4449,"The file samples/hard/3HARD.bmp, counted = 253, using dynamic, Total time: 8377.000000 ms"
-"hard","dynamic","4HARD","samples/hard/4HARD.bmp","OutputFolder/hard/dynamic/4HARD_OUTPUT.bmp",0,8.5285,"The file samples/hard/4HARD.bmp, counted = 259, using dynamic, Total time: 8440.000000 ms"
-"hard","dynamic","5HARD","samples/hard/5HARD.bmp","OutputFolder/hard/dynamic/5HARD_OUTPUT.bmp",0,9.2221,"The file samples/hard/5HARD.bmp, counted = 259, using dynamic, Total time: 9138.000000 ms"
-"hard","dynamic","6HARD","samples/hard/6HARD.bmp","OutputFolder/hard/dynamic/6HARD_OUTPUT.bmp",0,9.3700,"The file samples/hard/6HARD.bmp, counted = 270, using dynamic, Total time: 9287.000000 ms"
-"hard","dynamic","7HARD","samples/hard/7HARD.bmp","OutputFolder/hard/dynamic/7HARD_OUTPUT.bmp",0,9.4585,"The file samples/hard/7HARD.bmp, counted = 267, using dynamic, Total time: 9386.000000 ms"
-"hard","dynamic","8HARD","samples/hard/8HARD.bmp","OutputFolder/hard/dynamic/8HARD_OUTPUT.bmp",0,7.9470,"The file samples/hard/8HARD.bmp, counted = 264, using dynamic, Total time: 7865.000000 ms"
-"hard","dynamic","9HARD","samples/hard/9HARD.bmp","OutputFolder/hard/dynamic/9HARD_OUTPUT.bmp",0,9.2363,"The file samples/hard/9HARD.bmp, counted = 268, using dynamic, Total time: 9147.000000 ms"
-"impossible","basic","1IMPOSSIBLE","samples/impossible/1IMPOSSIBLE.bmp","OutputFolder/impossible/basic/1IMPOSSIBLE_OUTPUT.bmp",0,6.2367,"The file samples/impossible/1IMPOSSIBLE.bmp, counted = 275, using basic, Total time: 6138.000000 ms"
-"impossible","basic","2IMPOSSIBLE","samples/impossible/2IMPOSSIBLE.bmp","OutputFolder/impossible/basic/2IMPOSSIBLE_OUTPUT.bmp",0,6.8317,"The file samples/impossible/2IMPOSSIBLE.bmp, counted = 249, using basic, Total time: 6758.000000 ms"
-"impossible","basic","3IMPOSSIBLE","samples/impossible/3IMPOSSIBLE.bmp","OutputFolder/impossible/basic/3IMPOSSIBLE_OUTPUT.bmp",0,9.2959,"The file samples/impossible/3IMPOSSIBLE.bmp, counted = 253, using basic, Total time: 9204.000000 ms"
-"impossible","basic","4IMPOSSIBLE","samples/impossible/4IMPOSSIBLE.bmp","OutputFolder/impossible/basic/4IMPOSSIBLE_OUTPUT.bmp",0,7.0422,"The file samples/impossible/4IMPOSSIBLE.bmp, counted = 263, using basic, Total time: 6950.000000 ms"
-"impossible","basic","5IMPOSSIBLE","samples/impossible/5IMPOSSIBLE.bmp","OutputFolder/impossible/basic/5IMPOSSIBLE_OUTPUT.bmp",0,6.3855,"The file samples/impossible/5IMPOSSIBLE.bmp, counted = 268, using basic, Total time: 6312.000000 ms"
-"impossible","dynamic","1IMPOSSIBLE","samples/impossible/1IMPOSSIBLE.bmp","OutputFolder/impossible/dynamic/1IMPOSSIBLE_OUTPUT.bmp",0,9.0936,"The file samples/impossible/1IMPOSSIBLE.bmp, counted = 235, using dynamic, Total time: 9027.000000 ms"
-"impossible","dynamic","2IMPOSSIBLE","samples/impossible/2IMPOSSIBLE.bmp","OutputFolder/impossible/dynamic/2IMPOSSIBLE_OUTPUT.bmp",0,8.8567,"The file samples/impossible/2IMPOSSIBLE.bmp, counted = 243, using dynamic, Total time: 8785.000000 ms"
-"impossible","dynamic","3IMPOSSIBLE","samples/impossible/3IMPOSSIBLE.bmp","OutputFolder/impossible/dynamic/3IMPOSSIBLE_OUTPUT.bmp",0,9.3079,"The file samples/impossible/3IMPOSSIBLE.bmp, counted = 230, using dynamic, Total time: 9221.000000 ms"
-"impossible","dynamic","4IMPOSSIBLE","samples/impossible/4IMPOSSIBLE.bmp","OutputFolder/impossible/dynamic/4IMPOSSIBLE_OUTPUT.bmp",0,9.6937,"The file samples/impossible/4IMPOSSIBLE.bmp, counted = 240, using dynamic, Total time: 9612.000000 ms"
-"impossible","dynamic","5IMPOSSIBLE","samples/impossible/5IMPOSSIBLE.bmp","OutputFolder/impossible/dynamic/5IMPOSSIBLE_OUTPUT.bmp",0,8.4473,"The file samples/impossible/5IMPOSSIBLE.bmp, counted = 250, using dynamic, Total time: 8368.000000 ms"
-"medium","basic","10MEDIUM","samples/medium/10MEDIUM.bmp","OutputFolder/medium/basic/10MEDIUM_OUTPUT.bmp",0,6.7278,"The file samples/medium/10MEDIUM.bmp, counted = 304, using basic, Total time: 6665.000000 ms"
-"medium","basic","1MEDIUM","samples/medium/1MEDIUM.bmp","OutputFolder/medium/basic/1MEDIUM_OUTPUT.bmp",0,7.0663,"The file samples/medium/1MEDIUM.bmp, counted = 292, using basic, Total time: 6974.000000 ms"
-"medium","basic","2MEDIUM","samples/medium/2MEDIUM.bmp","OutputFolder/medium/basic/2MEDIUM_OUTPUT.bmp",0,5.3213,"The file samples/medium/2MEDIUM.bmp, counted = 287, using basic, Total time: 5243.000000 ms"
-"medium","basic","3MEDIUM","samples/medium/3MEDIUM.bmp","OutputFolder/medium/basic/3MEDIUM_OUTPUT.bmp",0,5.3118,"The file samples/medium/3MEDIUM.bmp, counted = 291, using basic, Total time: 5211.000000 ms"
-"medium","basic","4MEDIUM","samples/medium/4MEDIUM.bmp","OutputFolder/medium/basic/4MEDIUM_OUTPUT.bmp",0,5.3699,"The file samples/medium/4MEDIUM.bmp, counted = 292, using basic, Total time: 5293.000000 ms"
-"medium","basic","5MEDIUM","samples/medium/5MEDIUM.bmp","OutputFolder/medium/basic/5MEDIUM_OUTPUT.bmp",0,5.2264,"The file samples/medium/5MEDIUM.bmp, counted = 290, using basic, Total time: 5153.000000 ms"
-"medium","basic","6MEDIUM","samples/medium/6MEDIUM.bmp","OutputFolder/medium/basic/6MEDIUM_OUTPUT.bmp",0,6.1985,"The file samples/medium/6MEDIUM.bmp, counted = 301, using basic, Total time: 6119.000000 ms"
-"medium","basic","7MEDIUM","samples/medium/7MEDIUM.bmp","OutputFolder/medium/basic/7MEDIUM_OUTPUT.bmp",0,7.0876,"The file samples/medium/7MEDIUM.bmp, counted = 284, using basic, Total time: 6985.000000 ms"
-"medium","basic","8MEDIUM","samples/medium/8MEDIUM.bmp","OutputFolder/medium/basic/8MEDIUM_OUTPUT.bmp",0,5.7562,"The file samples/medium/8MEDIUM.bmp, counted = 280, using basic, Total time: 5677.000000 ms"
-"medium","basic","9MEDIUM","samples/medium/9MEDIUM.bmp","OutputFolder/medium/basic/9MEDIUM_OUTPUT.bmp",0,4.6994,"The file samples/medium/9MEDIUM.bmp, counted = 284, using basic, Total time: 4641.000000 ms"
-"medium","dynamic","10MEDIUM","samples/medium/10MEDIUM.bmp","OutputFolder/medium/dynamic/10MEDIUM_OUTPUT.bmp",0,7.9455,"The file samples/medium/10MEDIUM.bmp, counted = 271, using dynamic, Total time: 7867.000000 ms"
-"medium","dynamic","1MEDIUM","samples/medium/1MEDIUM.bmp","OutputFolder/medium/dynamic/1MEDIUM_OUTPUT.bmp",0,9.7805,"The file samples/medium/1MEDIUM.bmp, counted = 266, using dynamic, Total time: 9699.000000 ms"
-"medium","dynamic","2MEDIUM","samples/medium/2MEDIUM.bmp","OutputFolder/medium/dynamic/2MEDIUM_OUTPUT.bmp",0,7.8060,"The file samples/medium/2MEDIUM.bmp, counted = 269, using dynamic, Total time: 7724.000000 ms"
-"medium","dynamic","3MEDIUM","samples/medium/3MEDIUM.bmp","OutputFolder/medium/dynamic/3MEDIUM_OUTPUT.bmp",0,8.8985,"The file samples/medium/3MEDIUM.bmp, counted = 265, using dynamic, Total time: 8811.000000 ms"
-"medium","dynamic","4MEDIUM","samples/medium/4MEDIUM.bmp","OutputFolder/medium/dynamic/4MEDIUM_OUTPUT.bmp",0,8.1094,"The file samples/medium/4MEDIUM.bmp, counted = 265, using dynamic, Total time: 8040.000000 ms"
-"medium","dynamic","5MEDIUM","samples/medium/5MEDIUM.bmp","OutputFolder/medium/dynamic/5MEDIUM_OUTPUT.bmp",0,11.4768,"The file samples/medium/5MEDIUM.bmp, counted = 263, using dynamic, Total time: 11385.000000 ms"
-"medium","dynamic","6MEDIUM","samples/medium/6MEDIUM.bmp","OutputFolder/medium/dynamic/6MEDIUM_OUTPUT.bmp",0,10.0087,"The file samples/medium/6MEDIUM.bmp, counted = 279, using dynamic, Total time: 9937.000000 ms"
-"medium","dynamic","7MEDIUM","samples/medium/7MEDIUM.bmp","OutputFolder/medium/dynamic/7MEDIUM_OUTPUT.bmp",0,11.0440,"The file samples/medium/7MEDIUM.bmp, counted = 256, using dynamic, Total time: 10961.000000 ms"
-"medium","dynamic","8MEDIUM","samples/medium/8MEDIUM.bmp","OutputFolder/medium/dynamic/8MEDIUM_OUTPUT.bmp",0,10.5166,"The file samples/medium/8MEDIUM.bmp, counted = 245, using dynamic, Total time: 10442.000000 ms"
-"medium","dynamic","9MEDIUM","samples/medium/9MEDIUM.bmp","OutputFolder/medium/dynamic/9MEDIUM_OUTPUT.bmp",0,8.8940,"The file samples/medium/9MEDIUM.bmp, counted = 263, using dynamic, Total time: 8791.000000 ms"
+level,image_number,method,double_counted,counted,runtime_seconds
+easy,1,basic,25,311,2.183
+easy,1,dynamic,0,300,5.463
+easy,2,basic,18,308,2.156
+easy,2,dynamic,4,304,6.469
+easy,3,basic,18,310,2.114
+easy,3,dynamic,0,300,6.299
+easy,4,basic,25,317,2.667
+easy,4,dynamic,0,299,6.707
+easy,5,basic,24,313,2.16
+easy,5,dynamic,0,300,4.773
+easy,6,basic,22,315,2.136
+easy,6,dynamic,0,301,5.137
+easy,7,basic,29,316,2.648
+easy,7,dynamic,0,299,6.129
+easy,8,basic,12,307,3.383
+easy,8,dynamic,0,300,4.959
+easy,9,basic,25,313,3.208
+easy,9,dynamic,0,298,7.186
+easy,10,basic,22,312,3.153
+easy,10,dynamic,0,300,5.899
+medium,1,basic,26,292,6.974
+medium,1,dynamic,1,266,9.699
+medium,2,basic,17,287,5.243
+medium,2,dynamic,1,269,7.724
+medium,3,basic,20,291,5.211
+medium,3,dynamic,1,265,8.811
+medium,4,basic,27,292,5.293
+medium,4,dynamic,2,265,8.04
+medium,5,basic,22,290,5.153
+medium,5,dynamic,3,263,11.385
+medium,6,basic,35,301,6.119
+medium,6,dynamic,5,279,9.937
+medium,7,basic,21,284,6.985
+medium,7,dynamic,0,256,10.961
+medium,8,basic,32,280,5.677
+medium,8,dynamic,2,245,10.442
+medium,9,basic,26,284,4.641
+medium,9,dynamic,3,263,8.791
+medium,10,basic,27,304,6.665
+medium,10,dynamic,2,271,7.867
+hard,1,basic,30,294,5.513
+hard,1,dynamic,9,272,10.217
+hard,2,basic,16,267,6.168
+hard,2,dynamic,3,251,8.158
+hard,3,basic,10,254,6.549
+hard,3,dynamic,4,253,8.377
+hard,4,basic,24,276,6.026
+hard,4,dynamic,1,259,8.44
+hard,5,basic,22,291,5.409
+hard,5,dynamic,2,259,9.138
+hard,6,basic,19,289,5.411
+hard,6,dynamic,3,270,9.287
+hard,7,basic,24,292,6.09
+hard,7,dynamic,0,267,9.386
+hard,8,basic,21,295,7.616
+hard,8,dynamic,1,264,7.865
+hard,9,basic,27,287,6.226
+hard,9,dynamic,8,268,9.147
+hard,10,basic,19,276,5.955
+hard,10,dynamic,5,261,8.919
+impossible,1,basic,31,275,6.138
+impossible,1,dynamic,2,235,9.027
+impossible,2,basic,10,249,6.758
+impossible,2,dynamic,5,243,8.785
+impossible,3,basic,18,253,9.204
+impossible,3,dynamic,4,230,9.221
+impossible,4,basic,18,263,6.95
+impossible,4,dynamic,10,240,9.612
+impossible,5,basic,21,268,6.312
+impossible,5,dynamic,2,250,8.368

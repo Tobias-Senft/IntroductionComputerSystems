@@ -1,32 +1,24 @@
 import pandas as pd
-baicArray = pd.DataFrame([(1,292,6.039), 
-             (2 ,287 ,4.680),
-             (1 ,291 ,4.595),
-             (1 ,292 ,4.670 ),
-             (1 ,290 ,7.818 ),
-             (1 ,294 ,4.755),
-             (2 ,267 ,5.257 ),
-             (2 ,254 ,7.818),
-             (1, 301 ,5.374)
-             ])
-dynamicArray = pd.DataFrame( [(3 , 266 , 7.338), 
-               (2 ,269 ,6.022 ),
-               (3 ,265 ,7.018), 
-               (3 ,265 ,6.503),
-               (3 ,263 ,7.893),
-               (3 ,272 ,7.904),
-               (3 ,251 ,6.249),
-               (2 ,253 ,11.537),
-               (3, 279 , 6.858)
-               ])
+data = pd.read_csv("OutputFolder/results.csv")
 
+dynamic = data[data["method"] == "dynamic"]
+basic = data[data["method"] == "basic"]
 
+dynamicSummery = dynamic[["double_counted","counted","runtime_seconds"]].describe()
+basicSummery = basic[["double_counted","counted","runtime_seconds"]].describe()
+print(f"Dynamic data \n{dynamicSummery}")
+print(f"Baic data \n{basicSummery}")
 
-print("Basic Array")
-print(baicArray.describe())
-print("Dynamic Array")
-print(dynamicArray.describe())
+def outputPerLevel(levelString):
+    dynamic_level = dynamic[dynamic["level"] == levelString]
+    basic_level = basic[basic["level"] == levelString]
+    dynamicSummery_level = dynamic_level[["double_counted","counted","runtime_seconds"]].describe()
+    basicSummery_level = basic_level[["double_counted","counted","runtime_seconds"]].describe()
+    print(f"{levelString} Dynamic data \n{dynamicSummery_level}")
+    print(f"{levelString} Baic data \n{basicSummery_level}")
+    return
 
-
-  
-  
+outputPerLevel("easy")
+outputPerLevel("medium")
+outputPerLevel("hard")
+outputPerLevel("impossible")
